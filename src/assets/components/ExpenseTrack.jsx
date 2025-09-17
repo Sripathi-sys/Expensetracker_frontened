@@ -30,7 +30,7 @@ export default function ExpenseTrack() {
     );
     setExpenses(updated);
   } else {
-    axios.post("http://localhost:3001/api/postdata/", {
+    axios.post("https://expensetracker-backend-99vu.onrender.com/api/postdata/", {
       title,
       amount: Number(amount)
     })
@@ -48,7 +48,7 @@ export default function ExpenseTrack() {
 
 
   const deleteExpense = (id) => {
-    axios.delete(`http://localhost:3001/api/${id}`)
+    axios.delete(`https://expensetracker-backend-99vu.onrender.com`/api/${id}`)
       .then(() => {
         setExpenses(expenses.filter((exp) => exp.id !== id));
       })
