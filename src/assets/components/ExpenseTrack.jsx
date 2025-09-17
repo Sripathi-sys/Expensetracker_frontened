@@ -48,7 +48,7 @@ export default function ExpenseTrack() {
 
 
   const deleteExpense = (id) => {
-    axios.delete(`https://expensetracker-backend-99vu.onrender.com/api/${id}`)
+    axios.delete("https://expensetracker-backend-99vu.onrender.com/api/${id}")
       .then(() => {
         setExpenses(expenses.filter((exp) => exp.id !== id));
       })
