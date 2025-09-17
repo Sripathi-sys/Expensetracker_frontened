@@ -47,15 +47,13 @@ export default function ExpenseTrack() {
 };
 
 
-  const deleteExpense = (id) => {
-    axios.delete("https://expensetracker-backend-99vu.onrender.com/api/${id}")
-      .then(() => {
-        setExpenses(expenses.filter((exp) => exp.id !== id));
-      })
-      .catch((error) => {
-        console.error("Axios delete error:", error.message);
-      });
-  };
+const deleteExpense = (id) => {
+  axios.delete(`https://expensestracker-backend-99vu.onrender.com/api/${id}`)
+    .then(() => {
+      setExpenses(expenses.filter((exp) => exp.id !== id));
+    }); // closes .then()
+}; // closes deleteExpense function
+
 
   const editExpenses = (expense) => {
     setItemToEdit(expense);
