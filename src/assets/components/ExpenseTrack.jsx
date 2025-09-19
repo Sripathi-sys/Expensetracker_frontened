@@ -11,7 +11,7 @@ export default function ExpenseTrack() {
 
   // Fetch expenses on mount
   useEffect(() => {
-    axios.get('http://localhost:3001/api/')
+    axios.get('https://expensetracker-backend-99vu.onrender.com')
       .then((response) => {
         const formattedExpenses = response.data.map((exp) => ({
           id: exp._id,
@@ -33,7 +33,7 @@ export default function ExpenseTrack() {
       );
       setExpenses(updated);
     } else {
-      axios.post('https://expensetracker-backend-99vu.onrender.com/api/postdata/', {
+      axios.post('https://expensetracker-backend-99vu.onrender.com', {
         title,
         amount: Number(amount),
       })
@@ -53,7 +53,7 @@ export default function ExpenseTrack() {
 
   // Delete expense
   const deleteExpense = (id) => {
-    axios.delete(`https://expensestracker-backend-99vu.onrender.com/api/${id}`)
+    axios.delete(`https://expensetracker-backend-99vu.onrender.com${id}`)
       .then(() => {
         setExpenses(expenses.filter((exp) => exp.id !== id));
       })
